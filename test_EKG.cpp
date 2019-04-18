@@ -40,7 +40,6 @@ void test_ekg_normal() {
 		new_segment.value = new_segment_value;
 		update_ST_segments(measurement.ST_segments, new_segment);
 	}
-	cout << endl;;
 	//testing our progress function
 	ProcessEKG(measurement);
 	//alarm should not have been triggere
@@ -57,11 +56,7 @@ void test_ekg_alarm_triggers() {
 		ST_segment new_segment;
 		new_segment.value = new_segment_value;
 		update_ST_segments(measurement.ST_segments, new_segment);
-		//manually check if ST_segments 
-		cout << new_segment_value << " ";
 	}
-	cout << endl;
-	//testing our progress funciton
 	ProcessEKG(measurement);
 	//alarm should have been triggered
 	assert(measurement.alarm_triggered);
