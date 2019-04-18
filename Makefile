@@ -4,14 +4,15 @@ CC = g++
 # add debugging info and compiler warnings
 CFLAGS = -c -std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic 
 
-test: test*.o functions.o
-	$(CC) test*.o functions.o -o test
 
-functions.o: functions.cpp
-	$(CC) $(CFLAGS) functions.cpp
+test_EKG: test_EKG.o EKG_simulator.o
+	$(CC) test_EKG.o EKG_simulator.o -o test_EKG
 
-test.o:
-	$(CC) $(CFLAGS) $(wildcard test*.cpp)
+EKG_simulator.o: EKG_simulator.cpp
+	$(CC) $(CFLAGS) EKG_simulator.cpp
+
+test_EKG.o:
+	$(CC) $(CFLAGS) test_EKG.cpp
 
 clean:
-	rm -f *.o functions test
+	rm -f *.o EKG_simulator test_EKG
