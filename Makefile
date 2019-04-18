@@ -5,14 +5,14 @@ CC = g++
 CFLAGS = -c -std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic 
 
 
-test_EKG: test_EKG.o EKG_simulator.o
-	$(CC) test_EKG.o EKG_simulator.o -o test_EKG
+test_ekg: test_ekg.o ekg_simulator.o
+	$(CC) test_ekg.o ekg_simulator.o -o test_ekg
 
-EKG_simulator.o: EKG_simulator.cpp
-	$(CC) $(CFLAGS) EKG_simulator.cpp
+ekg_simulator.o: ekg_simulator.cpp
+	$(CC) $(CFLAGS) ekg_simulator.cpp
 
-test_EKG.o:
-	$(CC) $(CFLAGS) test_EKG.cpp
+test_ekg.o:
+	$(CC) $(CFLAGS) test_ekg.cpp
 
 clean:
-	rm -f *.o EKG_simulator test_EKG
+	rm -f *.o ekg_simulator test_ekg
