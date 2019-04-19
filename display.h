@@ -6,14 +6,16 @@
 #include <iostream>
 #include <ctime>
 
+using std::string;
+using std::vector;
+
 struct result {
 	time_t time;
 	string name;
 	int id;
 	string value;
-}
+};
 
-void display_labs(std::vector<result> & results, int days){
-	
-}
+void display_labs(vector<result> &results, int days);
+
 #endif
