@@ -14,6 +14,7 @@ struct EKG_object{
 class EKG{
 	public:
 		//necessary metrics to keep track of, hash table keeps track of occurances
+		//total will help compute average
 		std::unordered_map<int, int> hash; 
 		std::deque<int> ST_segments;
 		int min;

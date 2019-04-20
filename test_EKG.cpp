@@ -4,7 +4,7 @@
 using namespace std;
 
 void test_update(){
-	//generic testing to see if insertion works and updates relevant variables
+	//generic testing to see if insertion works and updates relevant variables, also tests if total works correctly
 	EKG EKG_machine;
 	//make sure initial semgments is empty
 	assert(EKG_machine.ST_segments.empty());
