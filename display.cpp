@@ -2,10 +2,8 @@
 
 using namespace std;
 
-void display_labs(vector<result> &results, int days){
-	for (unsigned int i = 0; i < results.size(); i++) {
-		if (days > 0) {
-			cout << "date/time: " << ctime(&results[i].time) << endl;
-		}
+void print_display(unordered_map<string, vector<result>> display) {
+	for (unsigned int i = 0; i < results.size(); i++){
+		cout << "date/time: " << ctime(&diresults[i].time) << endl;
 	}
 }

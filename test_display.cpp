@@ -24,14 +24,20 @@ void test_time() {
 	result new_result;
 	new_result.time = time(NULL);
 	results.push_back(new_result);
+	//calculate today 1 minute after midnight by getting rid of excess seconds in a day then add one more second
+	new_result.time = time(NULL) - (time(NULL) % 86400) + 1;
+	results.push_back(new_result);
 	//yesterday midnight, calculated by getting rid of excess seconds in a day
 	new_result.time = time(NULL) - (time(NULL) % 86400);
 	results.push_back(new_result);
 	//yesterday = current - 1 day
 	new_result.time = time(NULL) - 86400;
 	results.push_back(new_result);
-	//should result 2 days of data, one at midnight
+	//should result 2 days of data, so 4 datas
 	display_labs(results, 2);
+	//should only result 1 day of data, so 2 data
+	display_labs(results, 1);
+
 	cout << "test_time() passed!" << endl;
 }
 
