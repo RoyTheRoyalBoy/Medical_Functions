@@ -17,7 +17,7 @@ int main(){
 			EKG_object measurement;
 			//subtract the difference from 1/1/2000 to 1/1/1970 to get seconds since 1/1/2000
 			measurement.time = time(NULL) - 946684800;
-			measurement.ST_segment = rand() % 3 + 78;
+			measurement.ST_segment = rand() % 3 + 79;
 			cout << "Time: " << measurement.time  << " | " << "ST_segment: " << measurement.ST_segment << endl;
 			EKG_machine.ProcessEKG(measurement);
 		}
@@ -25,7 +25,7 @@ int main(){
 			//abnormal ST segment, should print alerts
 			EKG_object measurement;
 			measurement.time = time(NULL) - 946684800;
-			measurement.ST_segment = rand() % 5 + 77;
+			measurement.ST_segment = rand() % 5 + 78;
 			cout << "Time: " << measurement.time  << " | " << "ST_segment: " << measurement.ST_segment << endl;
 			EKG_machine.ProcessEKG(measurement);
 		}

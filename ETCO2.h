@@ -62,8 +62,10 @@ class ETCO2_monitor {
 		}
 		void compute_slope_r2() {
 			//computes the slope and r2, also pushes alarm if alarming, n is 10 since we always have 10 data points
-			double slope = pow(((10 * sum_xy) - (sum_x * sum_y)), 2) / (10 * sum_x2 - pow(sum_x, 2));
-			double r2 = slope / ((10 * sum_y2) - pow(sum_y, 2));
+			//divide all y by 60 to convert from seconds to minutes, all y2 by 3600
+			double slope = pow(((10 * sum_xy/60) - (sum_x * sum_y/60)), 2) / (10 * sum_x2 - pow(sum_x, 2));
+			double r2 = slope / ((10 * sum_y2/3600) - pow(sum_y/60, 2));
+			std::cout <<  "slope: " << slope << " | " << "r2: " << r2 << std::endl;
 			//trigger alarm if slope is greater than 1.5 and r2 is greater than .64
 			if (slope > 1.5 && r2 > 0.64) {
 				Alarm();

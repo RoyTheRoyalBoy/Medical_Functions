@@ -4,13 +4,16 @@ CC = g++
 # add debugging info and compiler warnings
 CFLAGS = -c -std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic 
 
-all: ekg_simulator test_ekg test_ETCO2 test_display
+all: EKG_simulator test_EKG test_ETCO2 test_display
 
-ekg_simulator: ekg_simulator.o
-	$(CC) ekg_simulator.o -o ekg_simulator
+EKG_simulator: EKG_simulator.o
+	$(CC) EKG_simulator.o -o EKG_simulator
 
-test_ekg: test_ekg.o
-	$(CC) test_ekg.o -o test_ekg
+ETCO2_simulator: ETCO2_simulator.o
+	$(CC) ETCO2_simulator.o -o ETCO2_simulator
+
+test_EKG: test_EKG.o
+	$(CC) test_EKG.o -o test_EKG
 
 test_display: test_display.o
 	$(CC) test_display.o -o test_display
@@ -18,14 +21,17 @@ test_display: test_display.o
 test_ETCO2:  test_ETCO2.o
 	$(CC) test_ETCO2.o -o test_ETCO2
 
-ekg_simulator.o: ekg_simulator.cpp
-	$(CC) $(CFLAGS) ekg_simulator.cpp
+EKG_simulator.o: EKG_simulator.cpp
+	$(CC) $(CFLAGS) EKG_simulator.cpp
+
+ETCO2_simulator.o: ETCO2_simulator.cpp
+	$(CC) $(CFLAGS) ETCO2_simulator.cpp
 
 display.o: display.cpp
 	$(CC) $(CFLAGS) display.cpp
 
-test_ekg.o:
-	$(CC) $(CFLAGS) test_ekg.cpp
+test_EKG.o:
+	$(CC) $(CFLAGS) test_EKG.cpp
 
 test_display.o:
 	$(CC) $(CFLAGS) test_display.cpp
@@ -34,4 +40,4 @@ test_ETCO2.o:
 	$(CC) $(CFLAGS) test_ETCO2.cpp
 
 clean:
-	rm -f *.o ekg_simulator test_ekg test_display test_ETCO2
+	rm -f *.o EKG_simulator ETCO2_simulator test_EKG test_display test_ETCO2
