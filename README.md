@@ -8,7 +8,7 @@ To run the main program, type: "./EKG_simulator", "./ETCO2_simulator" or "./disp
 Please refer to image below for further guidance:
 ![demo](https://github.com/RoyTheRoyalBoy/Medical_Functions/blob/master/commands.png)
 
-Also, please note that the test cases for display was different in a sense that it had no assert statements. I used the outputs on the command line terminal to visually evaluate how my outputs should look. If you would like to see some adjustments on how the output looks, please let me know and I'll try to change it accordingly.
+Also, please note that the test cases for display was different in a sense that it had no assert statements. I used the outputs on the command line terminal to visually evaluate how my outputs should look. If you would like to see some adjustments on how the output looks, please let me know and I'll try to change it accordingly. Here is the output of ./test_display:
 ![test_output](https://github.com/RoyTheRoyalBoy/Medical_Functions/blob/master/test_display_outputs.png)
 
 If there are additional questions or concerns, or even bug reports, please don't hesitate to reach out to me as soon as possible.
