@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	cout << "Welcome to ETCO2 monitor simulator!" << endl;
 	cout << "To simulate healthy ETCO2 levels, type 'normal'" << endl;
-	cout << "To simulate malignant inducint ETCO2 levels, type 'abnormal'" << endl;
+	cout << "To simulate unhealthy ETCO2 levels, type 'abnormal'" << endl;
 	cout << "Press ctrl-c to stop this simulator" << endl;
 	string mode;
 	cin >> mode;
