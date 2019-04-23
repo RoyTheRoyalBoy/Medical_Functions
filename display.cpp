@@ -25,6 +25,7 @@ int main() {
 			new_result.id = stoi(id);
 			cout << endl;
 			cout << "Please enter the time of the lab (in Epoch and descending order)" << endl;
+			cout << "Current Epoch time is " << time(NULL) << endl;
 			cout << "Lab time: ";
 			string time;
 			getline(cin, time);
@@ -49,20 +50,11 @@ int main() {
 			int days;
 			cin >> days;
 			cout << endl;
-			cout << "Processing..." << endl;
+			cout << "Displaying labs from past " << days << " days" << endl;
 			displayer.DisplayLabs(results, days);
-			cout << "Would you like to add more values? (y/n)" << endl;
-			cout << "Response: ";
-			string response;
-			cin >> response;
-			if (response == "y") {
-				done = false;
-			}
-			else {
-				cout << "Exiting program, have a nice day!" << endl;
-				break;
-			}
+			cout << "Exiting program, have a nice day!" << endl;
 			cout << endl;
+			break;
 		}
 
 	}
