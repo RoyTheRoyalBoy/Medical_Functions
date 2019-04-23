@@ -43,4 +43,4 @@ test_ETCO2.o:
 	$(CC) $(CFLAGS) test_ETCO2.cpp
 
 clean:
-	rm -f *.o EKG_simulator ETCO2_simulator test_EKG test_display test_ETCO2
+	rm -f *.o EKG_simulator ETCO2_simulator display test_EKG test_display test_ETCO2
