@@ -70,11 +70,12 @@ class Display {
 			for (unsigned int i = 0; i < date_col.size(); i++){
 				//display local time month, day, year
 				tm *ltm = localtime(&date_col[i]);
-				string date = "|" + to_string(1 + ltm->tm_mon) + "/" + to_string(ltm->tm_mday) + "/" + to_string(1900 + ltm->tm_year);
+				string date = "|" + to_string(1 + ltm->tm_mon) + "/" + to_string(ltm->tm_mday + 1) + "/" + to_string(1900 + ltm->tm_year);
 				cout << left << setw(col_width) << setfill(' ') << date;
 			}
 			cout << endl;
 			//iterate through rows and begin the row string
+			bool too_many_values = false;
 			for (unsigned int i = 0; i < name_row.size(); i++){
 				cout << left << setw(col_width) << setfill(' ') << name_row[i];
 				string row = "";
@@ -89,9 +90,17 @@ class Display {
 					}
 					//fill in the remaining spaces by calculating (column)*(col_width)-(spaces already occupied)
 					int remaining_space = col_width * (j+1) - (int)row.length();
+					if (remaining_space < 0) {
+						cout << "Error: Too many values entered, exiting..." << endl;
+						too_many_values = true;
+						break;
+					}
 				 	row.append(remaining_space, ' ');
 				}
-				//print out the row
+				//print out the row if there's less values than the limit
+				if (too_many_values) {
+					break;
+				}
 				cout << row << endl;
 			}
 		}

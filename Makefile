@@ -4,13 +4,16 @@ CC = g++
 # add debugging info and compiler warnings
 CFLAGS = -c -std=c++17 -Wconversion -Wall -Werror -Wextra -pedantic 
 
-all: EKG_simulator test_EKG test_ETCO2 test_display
+all: EKG_simulator ETCO2_simulator display test_EKG test_ETCO2 test_display
 
 EKG_simulator: EKG_simulator.o
 	$(CC) EKG_simulator.o -o EKG_simulator
 
 ETCO2_simulator: ETCO2_simulator.o
 	$(CC) ETCO2_simulator.o -o ETCO2_simulator
+
+display: display.o
+	$(CC) display.o -o display
 
 test_EKG: test_EKG.o
 	$(CC) test_EKG.o -o test_EKG

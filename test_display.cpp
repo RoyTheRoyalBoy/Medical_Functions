@@ -67,8 +67,24 @@ void test_lab_multiple_days() {
 	new_result.id = 1;
 	new_result.value = "50kg";
 	results.push_back(new_result);
-	//also, what if we list higher date shown than amount entered?
+	//do another one the day before
+	new_result.time = time(NULL) - 86400*3;
+	new_result.name = "weight";
+	new_result.id = 1;
+	new_result.value = "80kg";
+	results.push_back(new_result);
+	//and another one
+	new_result.time = time(NULL) - 86400*6;
+	new_result.name = "weight";
+	new_result.id = 1;
+	new_result.value = "75kg";
+	results.push_back(new_result);
+	//should only see 3 results
+	cout << "Displaying 4 days of results" << endl;
 	displayer.DisplayLabs(results, 4);
+	//should see all 4 results
+	cout << "Displaying 9 days of results" << endl;
+	displayer.DisplayLabs(results, 9);
 	cout << "test_lab_multiple_days() passed!" << endl;
 }
 
@@ -91,19 +107,28 @@ void test_multiple_values_in_1_lab() {
 	new_result.value = "200IQ";
 	new_result.name = "brain power";
 	results.push_back(new_result);
+	//push in the old lab name with new results again
+	new_result.name = "weight";
+	new_result.value = "77kg";
+	results.push_back(new_result);
+	//see how many more results can fit before program breaks
+	new_result.value = "1kg";
+	results.push_back(new_result);
+	cout << "Normal inputs to test limit how many values a slot can hold" << endl;
+	displayer.DisplayLabs(results, 4); 
+	//broke after pushing this line
+	new_result.value = "100kg";
+	results.push_back(new_result);
+	cout << "error inducing inputs" << endl;
 	displayer.DisplayLabs(results, 4);
 	cout << "test_multiple_values_in_1_lab() passed!" << endl;
 }
 
-void test_large() {
-	//what if we just had a bunch of values, lots of labs and dates, less than 20 characters per slot
-}
 
 int main() {
 	test_basic();
 	test_time();
 	test_lab_multiple_days();
 	test_multiple_values_in_1_lab();
-	test_large();
 	cout << "All tests passed!" << endl;
 }
